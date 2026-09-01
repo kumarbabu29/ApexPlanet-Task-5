@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="View your AURA shopping cart, adjust item quantities, calculate shipping fees, and proceed to checkout.">
+    <title>AURA | Cart</title>
+    <!-- CSS Foundation & UI System -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- JavaScript Component & Page Hydration -->
+    <script src="../js/data/products.js" defer></script>
+    <script src="../js/cart/cart-service.js" defer></script>
+    <script src="../js/wishlist/wishlist-service.js" defer></script>
+    <script src="../js/auth/auth-service.js" defer></script>
+    <script src="../js/components/navbar.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/pages/cart-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Sticky Header & Navigation -->
+    <app-navbar></app-navbar>
+
+    <main class="section"
+        style="padding-top: var(--spacing-xl); background-color: var(--color-background); min-height: 80vh;">
+        <div class="container">
+
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="Breadcrumb"
+                style="margin-bottom: var(--spacing-lg); font-size: 0.875rem; color: var(--color-text-muted);">
+                <a href="../index.html" style="color: var(--color-text-muted);">Home</a>
+                <span style="margin-inline: 4px;">/</span>
+                <span style="color: var(--color-primary); font-weight: 500;">Shopping Cart</span>
+            </nav>
+
+            <div class="section-header" style="text-align: left; margin-bottom: var(--spacing-xl);">
+                <h1 class="section-title">Your Shopping Cart</h1>
+                <p class="section-subtitle">Review your selected items and proceed to secure checkout.</p>
+            </div>
+
+            <!-- Active Cart Content Layout (Rendered dynamically) -->
+            <div id="cart-content-container" style="display: none;">
+                <div class="cart-layout">
+                    <!-- Left Column: Cart Items List -->
+                    <div id="cart-items-list" class="cart-items-list">
+                        <!-- Cart item cards populated dynamically by cart-page.js -->
+                    </div>
+
+                    <!-- Right Column: Order Summary Sidebar -->
+                    <div id="order-summary-container" class="cart-summary-column">
+                        <!-- Order summary populated dynamically by cart-page.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty Cart Fallback View -->
+            <div id="empty-cart-container" class="empty-state-container"
+                style="display: none; max-width: 600px; margin: 40px auto;">
+                <svg class="empty-state-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                <h2 style="margin: 0 0 var(--spacing-xs); font-size: 1.6rem;">YOUR CART IS EMPTY</h2>
+                <p style="margin: 0 0 var(--spacing-lg); color: var(--color-text-muted); font-size: 1rem;">
+                    You haven't added any products to your shopping cart yet.
+                </p>
+                <a href="products.html" class="btn btn-primary btn-lg">START SHOPPING</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sign in to your AURA account to access your saved wishlist, cart items, and order history.">
+    <title>AURA | Login</title>
+    <!-- CSS Foundation & UI System -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- JavaScript: Services load first so navbar badges initialise correctly -->
+    <script src="../js/data/products.js" defer></script>
+    <script src="../js/cart/cart-service.js" defer></script>
+    <script src="../js/wishlist/wishlist-service.js" defer></script>
+    <script src="../js/auth/auth-service.js" defer></script>
+    <script src="../js/components/navbar.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/pages/login-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Sticky Header & Navigation -->
+    <app-navbar></app-navbar>
+
+    <main class="section"
+        style="padding-top: var(--spacing-xl); background-color: var(--color-background); min-height: 80vh;">
+        <div class="container">
+
+            <div class="auth-card-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1 class="auth-title">Welcome Back</h1>
+                        <p class="auth-subtitle">Sign in to continue to your AURA account.</p>
+                    </div>
+
+                    <!-- Top General Alert Box -->
+                    <div id="form-alert" class="form-alert" style="display: none;"></div>
+
+                    <form id="login-form" novalidate aria-label="Sign In Form">
+
+                        <!-- Email Address Field -->
+                        <div class="form-group">
+                            <label for="email-input" class="form-label">Email Address</label>
+                            <input type="email" id="email-input" class="form-input" placeholder="john@example.com"
+                                required aria-required="true">
+                            <div id="email-error" class="form-error"></div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group">
+                            <label for="password-input" class="form-label">Password</label>
+                            <input type="password" id="password-input" class="form-input"
+                                placeholder="Enter your password" required aria-required="true">
+                            <div id="password-error" class="form-error"></div>
+                        </div>
+
+                        <!-- Options Row (Remember Me & Forgot Password) -->
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg); font-size: 0.875rem;">
+                            <label class="form-checkbox-label" style="margin: 0;">
+                                <input type="checkbox" id="remember-checkbox" checked>
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" id="forgot-password-link"
+                                style="color: var(--color-secondary); font-weight: 500;">Forgot password?</a>
+                        </div>
+
+                        <!-- Submit CTA -->
+                        <button type="submit" class="btn btn-primary btn-lg btn-full">LOGIN</button>
+                    </form>
+
+                    <!-- Footer Link -->
+                    <div class="auth-footer-link">
+                        <span>Don't have an account?</span>
+                        <a href="register.html" style="font-weight: 600; color: var(--color-primary);">Create an
+                            account</a>
+                    </div>
+
+                    <!-- Developer Security Notice -->
+                    <div class="demo-security-notice">
+                        ℹ️ <strong>Demo Note:</strong> Credentials are stored locally in browser storage for
+                        demonstration purposes only.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

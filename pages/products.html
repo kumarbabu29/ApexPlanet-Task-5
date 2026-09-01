@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore AURA's catalog of premium fashion, electronics, shoes, accessories, beauty, and home decor items.">
+    <title>AURA | Shop</title>
+    <!-- CSS Foundation & UI System -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- JavaScript Component & Page Hydration -->
+    <script src="../js/data/products.js" defer></script>
+    <script src="../js/cart/cart-service.js" defer></script>
+    <script src="../js/wishlist/wishlist-service.js" defer></script>
+    <script src="../js/auth/auth-service.js" defer></script>
+    <script src="../js/components/navbar.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/pages/products-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Sticky Header & Navigation -->
+    <app-navbar></app-navbar>
+
+    <main class="section"
+        style="padding-top: var(--spacing-xl); background-color: var(--color-background); min-height: 80vh;">
+        <div class="container">
+
+            <!-- Breadcrumb & Page Title Header -->
+            <div style="margin-bottom: var(--spacing-xl);">
+                <nav aria-label="Breadcrumb"
+                    style="margin-bottom: var(--spacing-xs); font-size: 0.875rem; color: var(--color-text-muted);">
+                    <a href="../index.html" style="color: var(--color-text-muted);">Home</a>
+                    <span style="margin-inline: 4px;">/</span>
+                    <span style="color: var(--color-primary); font-weight: 500;">Shop</span>
+                </nav>
+                <h1 style="margin: 0 0 var(--spacing-xxs); font-size: clamp(1.85rem, 4vw, 2.75rem);">Shop All Products
+                </h1>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: 1.05rem;">
+                    Explore our carefully selected collection of quality products.
+                </p>
+            </div>
+
+            <!-- Catalog Main Grid Layout -->
+            <div class="catalog-layout">
+
+                <!-- Filter Sidebar -->
+                <aside id="filter-sidebar" class="filter-sidebar" aria-label="Product Filters">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md); padding-bottom: var(--spacing-xs); border-bottom: 2px solid var(--color-primary);">
+                        <h2 style="font-size: 1.15rem; margin: 0; font-family: var(--font-headings);">Filters</h2>
+                        <button id="clear-filters-btn" class="btn btn-link"
+                            style="font-size: 0.8rem; text-transform: uppercase;">Reset All</button>
+                    </div>
+
+                    <!-- Search Filter Group -->
+                    <div class="filter-group">
+                        <label for="search-input" class="filter-title">Search</label>
+                        <input type="text" id="search-input" class="form-input" placeholder="Search products..."
+                            aria-label="Search products">
+                    </div>
+
+                    <!-- Category Filter Group -->
+                    <div class="filter-group">
+                        <span class="filter-title">Categories</span>
+                        <div class="filter-list" role="radiogroup" aria-label="Filter by category">
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="All" checked> All
+                                    Categories</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="Fashion"> Fashion</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="Electronics"> Electronics</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="Shoes"> Shoes</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="Accessories"> Accessories</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="Beauty"> Beauty</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-category" value="Home & Living"> Home &
+                                    Living</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter Group -->
+                    <div class="filter-group">
+                        <div class="filter-title">
+                            <span>Max Price</span>
+                            <span id="price-output"
+                                style="color: var(--color-secondary); font-weight: 700;">₹10,000</span>
+                        </div>
+                        <div class="price-slider-wrapper">
+                            <input type="range" id="price-slider" class="price-slider" min="500" max="10000" step="100"
+                                value="10000" aria-label="Filter by maximum price">
+                            <div class="price-output-display">
+                                <span>₹500</span>
+                                <span>₹10,000+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter Group -->
+                    <div class="filter-group">
+                        <span class="filter-title">Minimum Rating</span>
+                        <div class="filter-list" role="radiogroup" aria-label="Filter by rating">
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-rating" value="0" checked> All Ratings</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-rating" value="4"> ★★★★☆ &amp; above</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-rating" value="3"> ★★★☆☆ &amp; above</span>
+                            </label>
+                            <label class="filter-item">
+                                <span><input type="radio" name="filter-rating" value="2"> ★★☆☆☆ &amp; above</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Product Display Area -->
+                <section aria-label="Product Listings">
+
+                    <!-- Top Controls Bar -->
+                    <div class="catalog-top-bar">
+                        <button id="mobile-filter-toggle" class="btn btn-outline btn-sm mobile-filter-toggle"
+                            aria-expanded="false" aria-controls="filter-sidebar">
+                            FILTERS
+                        </button>
+
+                        <span id="product-count-display" class="product-count-text">
+                            Showing products...
+                        </span>
+
+                        <div class="catalog-sort-wrapper">
+                            <label for="sort-select"
+                                style="font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted);">Sort
+                                by:</label>
+                            <select id="sort-select" class="form-select"
+                                style="width: auto; padding: 0.4rem 0.75rem; font-size: 0.9rem;"
+                                aria-label="Sort products">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating-high">Rating: High to Low</option>
+                                <option value="newest">Newest Arrivals</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Products Grid -->
+                    <div id="products-grid" class="grid grid-3" style="gap: var(--spacing-lg);">
+                        <!-- Product cards rendered dynamically by products-page.js -->
+                    </div>
+
+                    <!-- Professional Empty State -->
+                    <div id="empty-state" class="empty-state-container" style="display: none;">
+                        <svg class="empty-state-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 style="margin: 0 0 var(--spacing-xs); font-size: 1.35rem;">No products found</h3>
+                        <p style="margin: 0 0 var(--spacing-lg); color: var(--color-text-muted); font-size: 0.95rem;">
+                            Try adjusting your search query, price slider, or category filters to find what you're
+                            looking for.
+                        </p>
+                        <button id="empty-state-clear-btn" class="btn btn-primary">CLEAR ALL FILTERS</button>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

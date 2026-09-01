@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AURA - Discover our latest collection of quality fashion, electronics, shoes, accessories, beauty, and home & living products.">
+    <title>AURA | Home</title>
+    <!-- CSS Foundation & UI System -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- JavaScript Component & Page Hydration -->
+    <script src="js/data/products.js" defer></script>
+    <script src="js/cart/cart-service.js" defer></script>
+    <script src="js/wishlist/wishlist-service.js" defer></script>
+    <script src="js/auth/auth-service.js" defer></script>
+    <script src="js/components/navbar.js" defer></script>
+    <script src="js/components/footer.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/pages/home.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 1. NAVBAR (Reused from Module 1) -->
+    <app-navbar></app-navbar>
+
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="hero-container container">
+                <!-- Text Column -->
+                <div class="hero-content">
+                    <span class="hero-eyebrow">NEW COLLECTION</span>
+                    <h1 class="hero-title">
+                        Discover Products <br>
+                        <span class="hero-title-accent">You'll Love</span>
+                    </h1>
+                    <p class="hero-description">
+                        Explore our latest collection of quality products designed to make every day better.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="pages/products.html" class="btn btn-primary btn-lg hero-btn-primary">SHOP NOW</a>
+                        <a href="pages/products.html" class="btn btn-outline btn-lg hero-btn-outline">EXPLORE COLLECTION</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Visual Block -->
+                <div class="hero-mobile-visual">
+                    <img src="assets/images/hero.png" alt="AURA Luxury Fashion Collection" class="hero-mobile-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SHOP BY CATEGORY -->
+        <section class="section" id="categories" style="background-color: var(--color-surface);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Shop by Category</h2>
+                    <p class="section-subtitle">Find everything you need in one place.</p>
+                </div>
+
+                <div class="grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--spacing-lg);">
+                    <!-- Category 1: Fashion -->
+                    <a href="pages/products.html?category=Fashion" class="category-card"
+                        aria-label="Explore Fashion Category">
+                        <div class="category-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10a2 2 0 002 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="category-title">Fashion</h3>
+                        <span class="category-count">120+ Products</span>
+                        <span class="category-link-text">Explore Collection &rarr;</span>
+                    </a>
+
+                    <!-- Category 2: Electronics -->
+                    <a href="pages/products.html?category=Electronics" class="category-card"
+                        aria-label="Explore Electronics Category">
+                        <div class="category-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="category-title">Electronics</h3>
+                        <span class="category-count">85+ Products</span>
+                        <span class="category-link-text">Explore Collection &rarr;</span>
+                    </a>
+
+                    <!-- Category 3: Shoes -->
+                    <a href="pages/products.html?category=Shoes" class="category-card"
+                        aria-label="Explore Shoes Category">
+                        <div class="category-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M4 16l4-8h8l4 8M4 16h16"></path>
+                            </svg>
+                        </div>
+                        <h3 class="category-title">Shoes</h3>
+                        <span class="category-count">60+ Products</span>
+                        <span class="category-link-text">Explore Collection &rarr;</span>
+                    </a>
+
+                    <!-- Category 4: Accessories -->
+                    <a href="pages/products.html?category=Accessories" class="category-card"
+                        aria-label="Explore Accessories Category">
+                        <div class="category-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="7"></circle>
+                                <polyline points="12 9 12 12 13.5 13.5"></polyline>
+                                <path d="M16.51 17.35l-.35.35A3.05 3.05 0 0112 18.6a3.05 3.05 0 01-4.16-.9l-.35-.35">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="category-title">Accessories</h3>
+                        <span class="category-count">140+ Products</span>
+                        <span class="category-link-text">Explore Collection &rarr;</span>
+                    </a>
+
+                    <!-- Category 5: Beauty -->
+                    <a href="pages/products.html?category=Beauty" class="category-card"
+                        aria-label="Explore Beauty Category">
+                        <div class="category-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="category-title">Beauty</h3>
+                        <span class="category-count">95+ Products</span>
+                        <span class="category-link-text">Explore Collection &rarr;</span>
+                    </a>
+
+                    <!-- Category 6: Home & Living -->
+                    <a href="pages/products.html?category=Home%20%26%20Living" class="category-card"
+                        aria-label="Explore Home & Living Category">
+                        <div class="category-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="category-title">Home & Living</h3>
+                        <span class="category-count">110+ Products</span>
+                        <span class="category-link-text">Explore Collection &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FEATURED PRODUCTS -->
+        <section class="section" id="featured-products"
+            style="background-color: var(--color-background); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Products</h2>
+                    <p class="section-subtitle">Handpicked selections curated for style and quality.</p>
+                </div>
+
+                <div class="grid grid-4">
+                    <!-- Product 1 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <span class="badge badge-sale product-badge">28% OFF</span>
+                            <img src="assets/images/01_sneakers.jpg" alt="Classic Minimal Sneakers" class="product-image" style="object-fit: cover; width: 100%; height: 100%;" loading="lazy">
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart" data-product-id="1"
+                                    aria-label="Add Classic Minimal Sneakers to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Shoes</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=1">Classic Minimal Sneakers</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.8 out of 5 stars">
+                                ★★★★★ <span>4.8</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹3,499</span>₹2,499
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <span class="badge badge-hot product-badge">HOT</span>
+                            <img src="assets/images/03_headphones.jpg" alt="Wireless Headphones" class="product-image" style="object-fit: cover; width: 100%; height: 100%;" loading="lazy">
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart" data-product-id="5"
+                                    aria-label="Add Wireless Noise-Canceling Headphones to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Electronics</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=5">Wireless Headphones</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.9 out of 5 stars">
+                                ★★★★★ <span>4.9</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹9,999</span>₹7,999
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <span class="badge badge-new product-badge">NEW</span>
+                            <img src="assets/images/01_watch.jpg" alt="Premium Analog Watch" class="product-image" style="object-fit: cover; width: 100%; height: 100%;" loading="lazy">
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart" data-product-id="9"
+                                    aria-label="Add Premium Analog Watch to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Accessories</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=9">Premium Analog Watch</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.6 out of 5 stars">
+                                ★★★★☆ <span>4.6</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹5,499</span>₹4,299
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <span class="badge badge-sale product-badge">SALE</span>
+                            <img src="assets/images/03_luggage.jpg" alt="Urban Everyday Backpack" class="product-image" style="object-fit: cover; width: 100%; height: 100%;" loading="lazy">
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart" data-product-id="10"
+                                    aria-label="Add Urban Everyday Backpack to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Accessories</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=10">Urban Everyday Backpack</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.7 out of 5 stars">
+                                ★★★★★ <span>4.7</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹2,499</span>₹1,899
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PROMOTIONAL BANNER -->
+        <section class="section" id="promotional-banner" style="background-color: var(--color-surface);">
+            <div class="container">
+                <div class="promo-banner">
+                    <div class="promo-banner-content">
+                        <span class="badge"
+                            style="background-color: var(--color-secondary); color: var(--color-primary); margin-bottom: var(--spacing-sm); font-size: 0.85rem;">UP
+                            TO 40% OFF</span>
+                        <h2
+                            style="color: var(--color-surface); font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 var(--spacing-xs); line-height: 1.2;">
+                            Upgrade Your Everyday Style
+                        </h2>
+                        <p style="color: #a3a3a3; font-size: 1.1rem; margin-bottom: var(--spacing-lg);">
+                            Discover selected products at special prices. Limited time promotional offers across all top
+                            categories.
+                        </p>
+                        <a href="pages/products.html" class="btn btn-secondary btn-lg">SHOP SALE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TRENDING PRODUCTS -->
+        <section class="section" id="trending-products"
+            style="background-color: var(--color-background); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Trending Now</h2>
+                    <p class="section-subtitle">Discover what everyone is shopping for.</p>
+                </div>
+
+                <div class="grid grid-4">
+                    <!-- Trending 1 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%" class="product-image"
+                                style="padding: 24px;" aria-hidden="true">
+                                <rect width="100" height="100" fill="#f4efe6" />
+                                <path d="M30 35 L40 25 L60 25 L70 35 L65 75 L35 75 Z" fill="#121212" />
+                                <line x1="50" y1="25" x2="50" y2="75" stroke="#c5a880" stroke-width="2" />
+                            </svg>
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart"
+                                    aria-label="Add Essential Cotton Shirt to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Fashion</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=cotton-shirt">Essential Cotton Shirt</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.7 out of 5 stars">
+                                ★★★★★ <span>4.7</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹1,999</span>₹1,499
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Trending 2 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%" class="product-image"
+                                style="padding: 24px;" aria-hidden="true">
+                                <rect width="100" height="100" fill="#f4efe6" />
+                                <rect x="25" y="40" width="50" height="35" rx="4" fill="#121212" />
+                                <path d="M25 45 L50 25 L75 45" fill="none" stroke="#c5a880" stroke-width="3" />
+                            </svg>
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart"
+                                    aria-label="Add Leather Crossbody Bag to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Accessories</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=crossbody-bag">Leather Crossbody Bag</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.5 out of 5 stars">
+                                ★★★★☆ <span>4.5</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹4,199</span>₹3,299
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Trending 3 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%" class="product-image"
+                                style="padding: 24px;" aria-hidden="true">
+                                <rect width="100" height="100" fill="#f4efe6" />
+                                <line x1="30" y1="75" x2="70" y2="75" stroke="#121212" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <path d="M50 75 L50 35 L70 30" fill="none" stroke="#121212" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <circle cx="70" cy="30" r="8" fill="#c5a880" />
+                            </svg>
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart"
+                                    aria-label="Add Minimalist Desk Lamp to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Home & Living</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=desk-lamp">Minimalist Desk Lamp</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.8 out of 5 stars">
+                                ★★★★★ <span>4.8</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹2,799</span>₹2,199
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Trending 4 -->
+                    <article class="card product-card">
+                        <div class="product-image-container">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%" class="product-image"
+                                style="padding: 24px;" aria-hidden="true">
+                                <rect width="100" height="100" fill="#f4efe6" />
+                                <rect x="20" y="35" width="60" height="30" rx="4" fill="#121212" />
+                                <circle cx="30" cy="45" r="3" fill="#c5a880" />
+                                <circle cx="40" cy="45" r="3" fill="#c5a880" />
+                                <circle cx="50" cy="45" r="3" fill="#c5a880" />
+                                <circle cx="60" cy="45" r="3" fill="#c5a880" />
+                                <rect x="35" y="55" width="30" height="4" fill="#c5a880" />
+                            </svg>
+                            <div class="product-actions-overlay">
+                                <button class="btn btn-primary btn-sm btn-full js-add-to-cart"
+                                    aria-label="Add Mechanical Keyboard to Cart">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Electronics</span>
+                            <h3 class="product-title">
+                                <a href="pages/product.html?id=mechanical-keyboard">Mechanical Keyboard</a>
+                            </h3>
+                            <div class="product-rating" aria-label="Rating 4.9 out of 5 stars">
+                                ★★★★★ <span>4.9</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <span class="old-price">₹6,999</span>₹5,499
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. WHY CHOOSE US -->
+        <section class="section" id="why-choose-us" style="background-color: var(--color-surface);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-subtitle">We prioritize quality, security, and customer satisfaction.</p>
+                </div>
+
+                <div class="grid grid-4">
+                    <!-- Advantage 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Fast & Reliable Delivery</h3>
+                        <p class="feature-desc">Get your order delivered quickly and safely straight to your doorstep.
+                        </p>
+                    </div>
+
+                    <!-- Advantage 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Secure Payments</h3>
+                        <p class="feature-desc">Your payment information is handled with encrypted security standards.
+                        </p>
+                    </div>
+
+                    <!-- Advantage 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Easy Returns</h3>
+                        <p class="feature-desc">Hassle-free 30-day return policy for peace of mind on every purchase.
+                        </p>
+                    </div>
+
+                    <!-- Advantage 4 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Quality Products</h3>
+                        <p class="feature-desc">Carefully selected items tested for durability, aesthetics, and
+                            performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. NEWSLETTER SECTION -->
+        <section class="section" id="newsletter"
+            style="background-color: var(--color-primary); color: var(--color-surface);">
+            <div class="container grid grid-2" style="align-items: center; gap: var(--spacing-xl);">
+                <div>
+                    <h2
+                        style="color: var(--color-surface); margin: 0 0 var(--spacing-xs); font-size: clamp(1.75rem, 3vw, 2.5rem);">
+                        Stay in the loop</h2>
+                    <p style="color: #a3a3a3; font-size: 1.05rem; margin-bottom: 0;">
+                        Subscribe to receive updates about new arrivals, exclusive offers and special promotions.
+                    </p>
+                </div>
+
+                <div>
+                    <form id="newsletter-form" novalidate
+                        style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+                        <input type="email" id="newsletter-email" class="form-input"
+                            placeholder="Enter your email address"
+                            aria-label="Enter your email address for newsletter subscription" required
+                            style="flex: 1; min-width: 240px; border-color: #262626; background-color: #1a1a1a; color: var(--color-surface);">
+                        <button type="submit" class="btn btn-secondary" style="min-width: 140px;">SUBSCRIBE</button>
+                    </form>
+                    <div id="newsletter-feedback"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. FOOTER (Reused from Module 1) -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

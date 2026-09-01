@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and track your current and past AURA orders.">
+    <title>AURA | My Orders</title>
+    <!-- CSS Foundation & UI System -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- JavaScript Component Hydration -->
+    <script src="../js/data/products.js" defer></script>
+    <script src="../js/cart/cart-service.js" defer></script>
+    <script src="../js/wishlist/wishlist-service.js" defer></script>
+    <script src="../js/auth/auth-service.js" defer></script>
+    <script src="../js/components/navbar.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/pages/orders-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Sticky Header & Navigation -->
+    <app-navbar></app-navbar>
+
+    <!-- Main Content (Populated dynamically by orders-page.js) -->
+    <main>
+        <div class="container section"
+            style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center; color: var(--color-text-muted);">
+                Loading orders session...
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

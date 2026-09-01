@@ -1,0 +1,233 @@
+/* Responsive Breakpoint Styles */
+
+/* ==========================================================================
+   MOBILE & TABLET DEFAULTS (Up to 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* Navbar Adjustments */
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(80%, 320px);
+        background-color: var(--color-surface);
+        box-shadow: var(--shadow-xl);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: calc(var(--spacing-xxl) + 1rem) var(--spacing-lg) var(--spacing-lg);
+        gap: var(--spacing-sm);
+        transform: translateX(100%);
+        transition: transform var(--transition-normal);
+        z-index: 1005;
+    }
+
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        font-size: 1.15rem;
+        font-family: var(--font-headings);
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
+        padding-block: var(--spacing-sm);
+        color: var(--color-primary);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Actions configuration in mobile */
+    .nav-actions {
+        gap: var(--spacing-xxs);
+    }
+
+    /* Footer Grid adaptation */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Layout structural adaptations */
+    .grid-4,
+    .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   TINY MOBILE (320px - 375px)
+   ========================================================================== */
+@media (max-width: 375px) {
+    .container {
+        padding-inline: var(--spacing-xs);
+    }
+
+    /* Hide text inside certain buttons on extremely small layouts */
+    .btn-responsive-hide span {
+        display: none;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .product-actions-overlay {
+        position: static;
+        opacity: 1;
+        transform: none;
+        background: transparent;
+        padding: var(--spacing-xs) 0 0;
+    }
+
+    .product-actions-overlay .btn {
+        flex: 1;
+        padding-block: var(--spacing-xs);
+    }
+}
+
+/* ==========================================================================
+   MEDIUM TABLETS (769px to 1024px)
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-menu {
+        gap: var(--spacing-md);
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+}
+
+/* ==========================================================================
+   DESKTOP STANDARD & WIDE SCREENS (1025px and up)
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .navbar {
+        padding-block: var(--spacing-md);
+    }
+
+    /* Shrink navbar padding slightly on scroll if needed (handled in JS later) */
+    .navbar.scrolled {
+        padding-block: var(--spacing-sm);
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1440px) {
+
+    /* Smooth spacing on Ultra-wide displays */
+    .container-wide {
+        max-width: 1400px;
+    }
+}
+
+/* ==========================================================================
+   UTILITY RESPONSIVE HIDDEN CLASSES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   HERO SECTION RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero {
+        min-height: 550px;
+        background-position: 85% top;
+        background-image: linear-gradient(90deg, #f6f4ef 0%, rgba(246, 244, 239, 0.95) 48%, rgba(246, 244, 239, 0.4) 75%, rgba(246, 244, 239, 0) 100%), url("../assets/images/hero.png");
+    }
+
+    .hero-content {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        background-image: none;
+        background-color: #f6f4ef;
+        padding-block: var(--spacing-xl);
+    }
+
+    .hero-container {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .hero-mobile-visual {
+        display: block;
+        width: 100%;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-mobile-img {
+        width: 100%;
+        max-height: 440px;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-block: 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-outline {
+        width: 100%;
+        min-width: 100%;
+    }
+}
